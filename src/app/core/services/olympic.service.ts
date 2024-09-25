@@ -9,19 +9,14 @@ import { OlympicCountry } from '../../core/models/Olympic';
 })
 export class OlympicService {
   private olympicUrl = './assets/mock/olympic.json';
-  // private olympics$ = new BehaviorSubject<any>(undefined);
   private olympics$ = new BehaviorSubject<OlympicCountry[] | null>(null);
 
   constructor(private http: HttpClient) {}
 
   loadInitialData() {
     return this.http.get<OlympicCountry[]>(this.olympicUrl).pipe(
-      // tap((value) => this.olympics$.next(value)),
-      tap((value) => {
-        console.log('Received data:', value);
-        this.olympics$.next(value);
-      }),
-      catchError((error: string, caught) => { //TODO error: string ?
+      tap((value) => this.olympics$.next(value)),
+      catchError((error: string, caught) => {
         // TODO: improve error handling
         console.error(error);
         // can be useful to end loading state and let the user know something went wrong :

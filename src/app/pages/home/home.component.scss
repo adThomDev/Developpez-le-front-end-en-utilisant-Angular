@@ -1,0 +1,36 @@
+.title-box {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  background-color: #3b818f;
+  border-radius: 10px;
+  padding: 20px;
+  color: #ffffff;
+  text-align: center;
+  width: fit-content;
+}
+
+.jos-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.jos-box {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 2px solid #3b818f;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  width: fit-content;
+}
+
+.jos-label {
+  color: #808080; /* grey */
+}
+
+.jos-count {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 10px;
+}

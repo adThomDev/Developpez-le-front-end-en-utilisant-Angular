@@ -10,10 +10,20 @@ import { OlympicService } from 'src/app/core/services/olympic.service';
 })
 export class HomeComponent implements OnInit {
   public olympics$: Observable<OlympicCountry[] | null> = of(null);
+  olympicCountries: OlympicCountry[] = [];
+  numberOfCountries: number = 0;
+  numberOfJOs: number = 0;
 
   constructor(private olympicService: OlympicService) {}
 
   ngOnInit(): void {
     this.olympics$ = this.olympicService.getOlympics();
+    this.olympics$.subscribe((receivedData) => {
+      if (receivedData !== null) {
+        this.olympicCountries = receivedData;
+        this.numberOfCountries = this.olympicCountries.length;
+        this.numberOfJOs = this.olympicCountries[0].participations.length;
+      }
+    });
   }
 }
