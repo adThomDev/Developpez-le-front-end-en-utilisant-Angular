@@ -2,7 +2,8 @@ import { Component, Input } from '@angular/core';
 import { Chart, ChartModule } from 'angular-highcharts';
 import { OlympicCountry } from 'src/app/core/models/Olympic';
 // @ts-ignore
-import medalistImage from 'src/assets/images/medalist.png';
+import { medalistImage } from 'src/assets/images';
+// import medalistImage from 'src/assets/images/medalist.png';
 
 @Component({
   selector: 'app-pie-chart',
@@ -16,10 +17,19 @@ export class PieChartComponent {
 
   pieData: Array<{ name: string; y: number; color: string }> = [];
 
+  getRandomNumber0to10(): number {
+    const range = 40;
+
+    return Math.random() < 0.5
+      ? -Math.floor(Math.random() * range)
+      : Math.floor(Math.random() * range);
+  }
+
   getRandomColor(): string {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
+    const r = 140 + this.getRandomNumber0to10();
+    const g = 90 + this.getRandomNumber0to10();
+    const b = 150 + this.getRandomNumber0to10();
+
     return `rgb(${r}, ${g}, ${b})`;
   }
 
@@ -37,30 +47,37 @@ export class PieChartComponent {
     });
   }
 
+  medalistImage = './assets/images/medalist.png';
+
   pieChart = new Chart({
     chart: {
       type: 'pie',
-      // plotShadow: false,
+      plotShadow: false,
     },
-    // credits: {
-    //   enabled: false,
-    // },
     plotOptions: {
       series: {
         allowPointSelect: true,
         cursor: 'pointer',
+        states: {
+          inactive: {
+            opacity: 1,
+          },
+          hover: {
+            enabled: false,
+          },
+        },
       },
     },
     tooltip: {
       useHTML: true,
       formatter: function () {
-        return (
-          '<img [src]="medalistImage.default" /><b>' +
-          this.key +
-          '</b> </br> <b>' +
-          this.y +
-          ' médailles</b>'
-        );
+        return `
+          <b style="display: flex; align-items: center;"> ${this.key}</b>
+          </br>
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="/assets/images/medal.svg" alt="image" width="12" height="12">
+            <b>${this.y}</b>
+          </div>`;
       },
       style: {
         color: 'white',
@@ -72,13 +89,8 @@ export class PieChartComponent {
       // valueSuffix: ' médailles'
     },
     title: {
-      // verticalAlign: 'middle',
-      // floating: true,
       text: '',
     },
-    // legend: {
-    //   enabled: false,
-    // },
     series: [
       {
         type: 'pie',
@@ -88,8 +100,6 @@ export class PieChartComponent {
         point: {
           events: {
             click: function (event) {
-              // alert(this.name + " " + this.y);
-              // console.log(event.point.options.name);
               location.href =
                 'http://localhost:4200/detail/' + event.point.options.name;
             },
@@ -98,7 +108,7 @@ export class PieChartComponent {
       },
     ],
     accessibility: {
-      enabled: false
+      enabled: false,
     },
   });
 }

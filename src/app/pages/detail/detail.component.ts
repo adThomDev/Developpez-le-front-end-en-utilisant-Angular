@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subscription } from 'rxjs';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { OlympicCountry } from 'src/app/core/models/Olympic';
 import { OlympicService } from 'src/app/core/services/olympic.service';
@@ -14,29 +14,24 @@ import { CommonModule } from '@angular/common';
   imports: [LineChartComponent, CommonModule, RouterLink],
 })
 export class DetailComponent implements OnInit {
-  public olympicCountry$: Observable<OlympicCountry | undefined> =
-    of(undefined);
+  private subscription: Subscription;
+  public olympicCountry$: Observable<OlympicCountry | undefined> = of(undefined);
   olympicCountry!: OlympicCountry;
-
-  constructor(private olympicService: OlympicService) {}
-
-
   private activatedRoute = inject(ActivatedRoute);
   countryName = this.activatedRoute.snapshot.params['countryName'];
-
   numberOfEntries: number = 0;
   totalNumberOfMedals: number = 0;
   totalNumberOfAthletes: number = 0;
 
-  // styles = {
-  //   'margins-lr': '10px',
-  // };
+  constructor(private olympicService: OlympicService) {
+    this.subscription = new Subscription();
+  }
 
   ngOnInit(): void {
     this.olympicCountry$ = this.olympicService.getOlympicByCountry(
       this.countryName
     );
-    this.olympicCountry$.subscribe((receivedData) => {
+    this.subscription = this.olympicCountry$.subscribe((receivedData) => {
       if (receivedData !== undefined) {
         console.log('receivedData ');
         console.log(receivedData);
@@ -56,7 +51,11 @@ export class DetailComponent implements OnInit {
 
     // if (window.innerWidth > 1000) {
     //   this.styles['margins-lr'] = '10%';
-    // }
+    // } //TODO
 
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe(); //TODO check si c'est ça
   }
 }
