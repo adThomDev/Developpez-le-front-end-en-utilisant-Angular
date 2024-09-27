@@ -14,3 +14,16 @@ export interface OlympicCountry {
   country: string;
   participations: Participation[];
 };
+
+// // Create a class that implements the OlympicCountry interface
+// export class OlympicCountryImpl implements OlympicCountry {
+//   id: number;
+//   country: string;
+//   participations: Participation[];
+
+//   constructor(id: number, country: string, participations: Participation[]) {
+//     this.id = id;
+//     this.country = country;
+//     this.participations = participations;
+//   }
+// }

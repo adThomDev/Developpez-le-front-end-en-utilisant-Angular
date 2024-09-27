@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Chart } from 'angular-highcharts';
-import { ChartModule } from 'angular-highcharts';
+import { Chart, ChartModule } from 'angular-highcharts';
 import { OlympicCountry } from 'src/app/core/models/Olympic';
 // @ts-ignore
 import medalistImage from 'src/assets/images/medalist.png';
@@ -25,10 +24,6 @@ export class PieChartComponent {
   }
 
   ngOnInit(): void {
-    // if(this.olympicCountriesFromParent) {
-    //   console.log(this.olympicCountriesFromParent);
-    // }
-
     this.olympicCountriesFromParent.forEach((country) => {
       const totalMedals = country.participations.reduce(
         (acc, participation) => acc + participation.medalsCount,
@@ -59,7 +54,13 @@ export class PieChartComponent {
     tooltip: {
       useHTML: true,
       formatter: function () {
-        return '<img [src]="medalistImage.default" /><b>' + this.key + '</b> </br> <b>' + this.y + ' médailles</b>';
+        return (
+          '<img [src]="medalistImage.default" /><b>' +
+          this.key +
+          '</b> </br> <b>' +
+          this.y +
+          ' médailles</b>'
+        );
       },
       style: {
         color: 'white',
@@ -82,23 +83,22 @@ export class PieChartComponent {
       {
         type: 'pie',
         data: this.pieData,
-        // data: [
-        //   { name: 'COVID 19', y: 1, color: '#eeeeee' },
-        //   { name: 'HIV/AIDS', y: 2, color: '#393e46' },
-        //   { name: 'EBOLA', y: 3, color: '#00adb5' },
-        //   { name: 'DISPORA', y: 4, color: '#eeeeee' },
-        //   { name: 'DIABETES', y: 5, color: '#506ef9' },
-        // ]
         cursor: 'pointer',
         animation: false,
-        point:{
-            events:{
-                click: function (event) {
-                    alert(this.name + " " + this.y);
-                }
-            }
-        }  
+        point: {
+          events: {
+            click: function (event) {
+              // alert(this.name + " " + this.y);
+              // console.log(event.point.options.name);
+              location.href =
+                'http://localhost:4200/detail/' + event.point.options.name;
+            },
+          },
+        },
       },
     ],
+    accessibility: {
+      enabled: false
+    },
   });
 }

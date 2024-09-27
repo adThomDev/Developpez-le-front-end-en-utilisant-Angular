@@ -1,5 +1,5 @@
-<h2>Olympic games app</h2>
-<hr />
+<!-- <h2>Olympic games app</h2>
+<hr /> -->
 
 <div class="title-box">Medals per Country</div>
 
@@ -18,7 +18,9 @@
   </div>
 </div>
 
-<app-pie-chart
-  *ngIf="olympicCountries.length > 0"
-  [olympicCountriesFromParent]="olympicCountries"
-></app-pie-chart>
+<div class="margins-lr-10pc">
+  <app-pie-chart
+    *ngIf="olympicCountries.length > 0"
+    [olympicCountriesFromParent]="olympicCountries"
+  ></app-pie-chart>
+</div>

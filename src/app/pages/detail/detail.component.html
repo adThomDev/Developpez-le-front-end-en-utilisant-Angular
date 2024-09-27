@@ -1,1 +1,72 @@
-<p>detail works!</p>
+<div *ngIf="olympicCountry !== undefined">
+  <div class="title-box">
+    <b> {{ olympicCountry.country }}</b>
+  </div>
+
+  <div class="jos-container">
+    <div class="jos-box">
+      <div class="jos-label">Number of entries</div>
+      <div class="jos-count">
+        <b>{{ numberOfEntries }}</b>
+      </div>
+    </div>
+    <div class="jos-box">
+      <div class="jos-label">Total number of medals</div>
+      <div class="jos-count">
+        <b>{{ totalNumberOfMedals }}</b>
+      </div>
+    </div>
+    <div class="jos-box">
+      <div class="jos-label">Total number of athletes</div>
+      <div class="jos-count">
+        <b>{{ totalNumberOfAthletes }}</b>
+      </div>
+    </div>
+  </div>
+  <div class="margins-lr-10pc">
+  <!-- <div class="margins-lr-10pc"> -->
+  <!-- <div class="margins-lr"> -->
+    <app-line-chart
+      [olympicCountryFromParent]="olympicCountry"
+    ></app-line-chart>
+  </div>
+</div>
+
+<!-- <div style="margin-top: 20px">
+  <button>
+  <a routerLink="/">Back</a></button>
+</div> -->
+<div >
+<button routerLink="/" class="title-box">Go Back</button></div>
+
+
+
+<!-- <div class="title-box" *ngIf="olympicCountry !== undefined">
+  {{ olympicCountry.country }}
+</div>
+
+<div class="jos-container">
+  <div class="jos-box">
+    <div class="jos-label">Number of entries</div>
+    <div class="jos-count">
+      <b *ngIf="olympicCountry !== undefined">{{ numberOfEntries }}</b>
+    </div>
+  </div>
+  <div class="jos-box">
+    <div class="jos-label">Total number of medals</div>
+    <div class="jos-count">
+      <b *ngIf="olympicCountry !== undefined">{{ totalNumberOfMedals }}</b>
+    </div>
+  </div>
+  <div class="jos-box">
+    <div class="jos-label">Total number of athletes</div>
+    <div class="jos-count">
+      <b *ngIf="olympicCountry !== undefined">{{ totalNumberOfAthletes }}</b>
+    </div>
+  </div>
+</div>
+
+<app-line-chart
+  *ngIf="olympicCountry !== undefined"
+  [olympicCountryFromParent]="olympicCountry"
+></app-line-chart> -->

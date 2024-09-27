@@ -1,6 +1,8 @@
 .title-box {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  margin: 0 auto;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
   background-color: #3b818f;
   border-radius: 10px;
   padding: 20px;
@@ -11,12 +13,13 @@
 
 .jos-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 2%;
+  padding-bottom: 20px;
 }
 
 .jos-box {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  margin: 0 auto;
   background-color: #ffffff;
   border: 2px solid #3b818f;
   border-radius: 10px;
@@ -25,8 +28,12 @@
   width: fit-content;
 }
 
+.margins-lr-10pc {
+  margin: 0 10% 0 10%;
+}
+
 .jos-label {
-  color: #808080; /* grey */
+  color: #808080;
 }
 
 .jos-count {
