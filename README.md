@@ -1,29 +1,36 @@
-# OlympicGamesStarter
+# Page interactive Jeux olympiques
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+## Description
 
-Don't forget to install your node_modules before starting (`npm install`).
+Ce projet créé par l'ESN DelivWeb pour le compte de TéléSport affiche deux pages interactives avec des diagrammes en rapport avec les Jeux Olympiques. Une première page affiche des données générales pour plusieurs pays lors de précédants Jeux Olympiques, et lorsque l'on clique sur l'un deux on accède à la seconde page où sont affichés plus de détails à propos des résultats de ce pays.
 
-## Development server
+## Technologie
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Ce projet a été créé avec [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3. et  [Node Packet Manager](https://www.npmjs.com/) version 10.8.2
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Clonage du projet :
+Après avoir navigué dans le répertoire de votre choix avec un terminal bash, executer
+    ```bash
+    git clone https://github.com/adThomDev/Developpez-le-front-end-en-utilisant-Angular.git
+    ```
 
-## Where to start
+2. Installation des dépendances :
+Après être entré dans le répertoire du projet avec un terminal bash, executer
+    ```bash
+    npm install
+    ```
+3. Démarrer le serveur de développement :
+Executer
+    ```bash
+    ng serve
+    ```
+Le site est hébérgé à cette adresse : `http://localhost:4200`
 
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
+Alternativement vous pouvez aussi construire le projet. Executer
+    ```bash
+    ng build
+    ```
 
-- `components` folder: contains every reusable components
-- `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services` and `models` folders)
 
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
-
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
-
-You're now ready to implement the requested features.
-
-Good luck!

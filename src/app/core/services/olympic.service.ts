@@ -20,6 +20,7 @@ export class OlympicService {
         // TODO: improve error handling
         console.error(error);
         // can be useful to end loading state and let the user know something went wrong :
+        this.olympics$.complete(); //TODO ia a sorti ça
         this.olympics$.next(null);
         return caught;
       })

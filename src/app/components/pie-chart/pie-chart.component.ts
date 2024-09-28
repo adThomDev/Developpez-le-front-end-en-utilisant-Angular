@@ -69,6 +69,7 @@ export class PieChartComponent {
       },
     },
     tooltip: {
+      shape: 'rect',
       useHTML: true,
       formatter: function () {
         return `
@@ -84,9 +85,6 @@ export class PieChartComponent {
         fontWeight: 'bold',
       },
       backgroundColor: '#3b818f',
-      // enabled: false,
-      // valueDecimals: 2,
-      // valueSuffix: ' médailles'
     },
     title: {
       text: '',
