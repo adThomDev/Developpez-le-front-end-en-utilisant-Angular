@@ -26,9 +26,10 @@ Executer
     ```bash
     ng serve
     ```
-Le site est hébérgé à cette adresse : `http://localhost:4200`
+Le site sera disponible à cette adresse : `http://localhost:4200`
 
-Alternativement vous pouvez aussi construire le projet. Executer
+Alternativement vous pouvez aussi construire le projet. 
+Executer
     ```bash
     ng build
     ```

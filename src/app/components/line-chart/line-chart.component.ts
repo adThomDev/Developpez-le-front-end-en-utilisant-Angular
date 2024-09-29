@@ -34,11 +34,14 @@ export class LineChartComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    this.initChart();
+    this.initLineChart();
   }
 
-  initChart(): void {
+  initLineChart(): void {
     this.lineChart = new Chart({
+      accessibility: {
+        enabled: false,
+      },
       chart: {
         type: 'line',
       },
@@ -65,9 +68,6 @@ export class LineChartComponent implements AfterViewInit {
         series: {
           connectNulls: true,
         },
-      },
-      accessibility: {
-        enabled: false
       },
     });
   }
