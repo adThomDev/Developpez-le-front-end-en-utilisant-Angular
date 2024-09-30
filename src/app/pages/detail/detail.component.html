@@ -1,0 +1,38 @@
+<div *ngIf="errorMessage; else noError" class="error-message">
+  {{ errorMessage }}
+</div>
+
+<ng-template #noError>
+  <div *ngIf="olympicCountry !== undefined">
+    <div class="title-box">
+      <b> {{ olympicCountry.country }}</b>
+    </div>
+
+    <div class="jos-container">
+      <div class="jos-box">
+        <div class="jos-label">Number of entries</div>
+        <div class="jos-count">
+          <b>{{ numberOfEntries }}</b>
+        </div>
+      </div>
+      <div class="jos-box">
+        <div class="jos-label">Total number of medals</div>
+        <div class="jos-count">
+          <b>{{ totalNumberOfMedals }}</b>
+        </div>
+      </div>
+      <div class="jos-box">
+        <div class="jos-label">Total number of athletes</div>
+        <div class="jos-count">
+          <b>{{ totalNumberOfAthletes }}</b>
+        </div>
+      </div>
+    </div>
+    <div class="margins-lr-10pc">
+      <app-line-chart
+        [olympicCountryFromParent]="olympicCountry"
+      ></app-line-chart>
+    </div>
+  </div>
+  <div routerLink="/" class="title-box btn">Go Back</div>
+</ng-template>
