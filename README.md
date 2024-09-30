@@ -12,27 +12,23 @@ This project was created with [Angular CLI](https://github.com/angular/angular-c
 
 1. Cloning the project :
 After navigating to the directory of your choice with a bash terminal, run
-    ```
-    bash
+    ```bash
     git clone https://github.com/adThomDev/Developpez-le-front-end-en-utilisant-Angular.git
     ```
 
 2. Installing dependencies :
 After entering the project directory with a bash terminal, run
-    ```
-    bash
+    ```bash
     npm install
     ```
 3. Start the development server:
 Run
-    ```
-    bash
+    ```bash
     ng serve
     ```
 Alternatively, you can also build the project: 
 Execute
-    ```
-    bash
+    ```bash
     ng build
     ```
 
