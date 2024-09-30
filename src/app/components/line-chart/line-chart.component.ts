@@ -59,9 +59,10 @@ export class LineChartComponent implements AfterViewInit {
       },
       series: [
         {
+          showInLegend: false, 
           type: 'line',
-          name: this.olympicCountryFromParent.country,
           data: [...this.medalsCount],
+          animation: false,
         },
       ],
       plotOptions: {
