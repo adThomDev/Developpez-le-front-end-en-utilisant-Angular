@@ -1,6 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Chart, ChartModule } from 'angular-highcharts';
 import { OlympicCountry } from 'src/app/core/models/Olympic';
+import * as Highcharts from 'highcharts';
+import HighchartsAccessibility from 'highcharts/modules/accessibility';
+
+// Initializing Highcharts Accessibility module
+HighchartsAccessibility(Highcharts);
 
 @Component({
   selector: 'app-pie-chart',
@@ -111,7 +116,7 @@ export class PieChartComponent {
         },
       ],
       accessibility: {
-        enabled: false,
+        enabled: true,
       },
     });
   }

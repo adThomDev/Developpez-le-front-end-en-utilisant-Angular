@@ -1,6 +1,11 @@
 import { Component, Input, AfterViewInit } from '@angular/core';
 import { Chart, ChartModule } from 'angular-highcharts';
 import { OlympicCountry } from 'src/app/core/models/Olympic';
+import * as Highcharts from 'highcharts';
+import HighchartsAccessibility from 'highcharts/modules/accessibility';
+
+// Initializing Highcharts Accessibility module
+HighchartsAccessibility(Highcharts);
 
 @Component({
   selector: 'app-line-chart',
@@ -39,9 +44,6 @@ export class LineChartComponent implements AfterViewInit {
 
   initLineChart(): void {
     this.lineChart = new Chart({
-      accessibility: {
-        enabled: false,
-      },
       chart: {
         type: 'line',
       },
@@ -59,7 +61,7 @@ export class LineChartComponent implements AfterViewInit {
       },
       series: [
         {
-          showInLegend: false, 
+          showInLegend: false,
           type: 'line',
           data: [...this.medalsCount],
           animation: false,
@@ -69,6 +71,9 @@ export class LineChartComponent implements AfterViewInit {
         series: {
           connectNulls: true,
         },
+      },
+      accessibility: {
+        enabled: true,
       },
     });
   }
