@@ -28,7 +28,7 @@ Run
     ```
 Alternatively, you can also build the project: 
 Execute
-    ```bash
+    ```
     ng build
     ```
 
