@@ -1,5 +1,8 @@
-<div *ngIf="errorMessage; else noError" class="error-message">
-  {{ errorMessage }}
+<div *ngIf="errorMessage; else noError">
+  <div class="error-message">
+    {{ errorMessage }}
+  </div>
+  <div routerLink="/" class="title-box btn">Home</div>
 </div>
 
 <ng-template #noError>

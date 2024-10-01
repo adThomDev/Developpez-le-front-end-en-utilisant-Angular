@@ -14,11 +14,13 @@ import { CommonModule } from '@angular/common';
   imports: [LineChartComponent, CommonModule, RouterLink],
 })
 export class DetailComponent implements OnInit {
-  private activatedRoute = inject(ActivatedRoute);
-  countryName = this.activatedRoute.snapshot.params['countryName'];
   private errorSubscription: Subscription;
   public fetchDataErrorCheck$: Observable<string | null> = of(null);
   errorMessage: string | null = null;
+
+  private activatedRoute = inject(ActivatedRoute);
+  countryName = this.activatedRoute.snapshot.params['countryName'];
+
   private countryDataSubscription: Subscription;
   public olympicCountry$: Observable<OlympicCountry | undefined> =
     of(undefined);
@@ -33,8 +35,8 @@ export class DetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.fetchDataErrorCheck();
     this.getOlympicCountryData();
+    this.fetchDataErrorCheck();
   }
 
   /**
@@ -59,6 +61,7 @@ export class DetailComponent implements OnInit {
       this.countryDataSubscription = this.olympicCountry$.subscribe(
         (receivedData) => {
           if (receivedData !== undefined) {
+            this.errorMessage = null;
             this.olympicCountry = receivedData;
             this.numberOfEntries = this.olympicCountry.participations.length;
             this.totalNumberOfMedals = this.olympicCountry.participations.reduce(
@@ -70,6 +73,9 @@ export class DetailComponent implements OnInit {
                 (sum, p) => sum + p.athleteCount,
                 0
               );
+          }
+          else {
+            this.errorMessage = 'Country not found';
           }
         }
       );
