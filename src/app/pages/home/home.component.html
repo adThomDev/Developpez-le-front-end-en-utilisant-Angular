@@ -1,3 +1,32 @@
-<h2>Olympic games app</h2>
-<hr />
-<p>{{ (olympics$ | async)?.length }} data loaded</p>
+<div *ngIf="errorMessage; else noError">
+  <div class="error-message">
+    {{ errorMessage }}
+  </div>
+  <div routerLink="/" class="title-box btn">Reload</div>
+</div>
+
+<ng-template #noError>
+  <div class="title-box">Medals per Country</div>
+
+  <div class="jos-container">
+    <div class="jos-box">
+      <div class="jos-label">Number of JOs</div>
+      <div class="jos-count">
+        <b>{{ numberOfJOs }}</b>
+      </div>
+    </div>
+    <div class="jos-box">
+      <div class="jos-label">Number of countries</div>
+      <div class="jos-count">
+        <b>{{ numberOfCountries }}</b>
+      </div>
+    </div>
+  </div>
+
+  <div class="margins-lr-10pc">
+    <app-pie-chart
+      *ngIf="olympicCountries.length > 0"
+      [olympicCountriesFromParent]="olympicCountries"
+    ></app-pie-chart>
+  </div>
+</ng-template>

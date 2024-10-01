@@ -1,29 +1,35 @@
-# OlympicGamesStarter
+# OlympicGamesStarter : An Olympic Games interactive page
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+## Description
 
-Don't forget to install your node_modules before starting (`npm install`).
+This project created by ESN DelivWeb for TéléSport displays two interactive pages with diagrams related to the Olympic Games. The first page displays general data for several countries at previous Olympic Games, and when you click on one of them you go to the second page where more details about that country's results are displayed.
 
-## Development server
+## Technology
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+This project was created with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3. and [Node Packet Manager](https://www.npmjs.com/) version 10.8.2
 
-## Build
+## Installation
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Cloning the project :
+After navigating to the directory of your choice with a bash terminal, run
+    ```bash
+    git clone https://github.com/adThomDev/Developpez-le-front-end-en-utilisant-Angular.git
+    ```
 
-## Where to start
+2. Installing dependencies :
+After entering the project directory with a bash terminal, run
+    ```bash
+    npm install
+    ```
+3. Start the development server:
+Run
+    ```bash
+    ng serve
+    ```
+Alternatively, you can also build the project: 
+Execute
+    ```
+    ng build
+    ```
 
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
-
-- `components` folder: contains every reusable components
-- `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services` and `models` folders)
-
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
-
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
-
-You're now ready to implement the requested features.
-
-Good luck!
+The site will be available at this address: `http://localhost:4200`
