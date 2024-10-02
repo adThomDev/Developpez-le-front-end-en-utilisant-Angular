@@ -62,6 +62,7 @@ export class LineChartComponent implements AfterViewInit {
       series: [
         {
           showInLegend: false,
+          name: this.olympicCountryFromParent.country,
           type: 'line',
           data: [...this.medalsCount],
           animation: false,
